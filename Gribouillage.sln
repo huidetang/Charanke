@@ -1,11 +1,11 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gribouillage", "Gribouillage\Gribouillage\Gribouillage.csproj", "{0E2B52C8-7483-4FD9-BE1E-9CA3B8E021E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gribouillage", "Gribouillage.Mobile\Gribouillage\Gribouillage.csproj", "{0E2B52C8-7483-4FD9-BE1E-9CA3B8E021E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gribouillage.Android", "Gribouillage\Gribouillage.Android\Gribouillage.Android.csproj", "{70000EBC-1DA9-411C-972E-4E987A11B409}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gribouillage.Android", "Gribouillage.Mobile\Gribouillage.Android\Gribouillage.Android.csproj", "{70000EBC-1DA9-411C-972E-4E987A11B409}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gribouillage.iOS", "Gribouillage\Gribouillage.iOS\Gribouillage.iOS.csproj", "{4826BC7E-73BB-476B-BCCB-EC6ECA1AA34E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gribouillage.iOS", "Gribouillage.Mobile\Gribouillage.iOS\Gribouillage.iOS.csproj", "{4826BC7E-73BB-476B-BCCB-EC6ECA1AA34E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,22 @@
+{
+  "name": "gribouillage.web",
+  "version": "0.0.1",
+  "description": "A tiny notepad app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huideyeren/Gribouillage.git"
+  },
+  "keywords": [
+    "Notebook"
+  ],
+  "author": "Iosif Huideyeren Takakura",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huideyeren/Gribouillage/issues"
+  },
+  "homepage": "https://github.com/huideyeren/Gribouillage#readme"
+}

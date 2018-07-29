@@ -5,6 +5,9 @@ using Gribouillage.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prism.Unity;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Gribouillage
@@ -25,6 +28,13 @@ namespace Gribouillage
             InitializeComponent();
 
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
+        }
+
+        protected override async void OnStart()
+        {
+            await AppCenter.Start("ios=69259a15-94b7-4822-bdc0-d11bc2d146e0;" +
+                      "android=f526a445-0646-460c-bd08-7e01f80d39c5;",
+                      typeof(Analytics), typeof(Crashes));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
