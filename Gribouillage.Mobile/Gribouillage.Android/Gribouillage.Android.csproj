@@ -46,6 +46,11 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidSigningKeyStore>/Users/yusuke/debug.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>393924teYan4!</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>gribouillagedebugkey</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>393924teYan4!</AndroidSigningKeyPass>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
