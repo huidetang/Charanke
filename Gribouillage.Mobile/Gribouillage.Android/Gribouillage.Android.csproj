@@ -36,6 +36,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidSigningKeyStore>/Users/yusuke/Dropbox/Androidキーストア/debug.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>393924teYan4!</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>gribouillagedebugkey</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>393924teYan4!</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +52,7 @@
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <AndroidKeyStore>True</AndroidKeyStore>
-    <AndroidSigningKeyStore>/Users/yusuke/debug.keystore</AndroidSigningKeyStore>
+    <AndroidSigningKeyStore>/Users/yusuke/Dropbox/Androidキーストア/debug.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>393924teYan4!</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>gribouillagedebugkey</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>393924teYan4!</AndroidSigningKeyPass>
