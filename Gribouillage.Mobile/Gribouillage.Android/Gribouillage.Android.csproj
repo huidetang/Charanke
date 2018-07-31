@@ -40,7 +40,6 @@
     <AndroidSigningStorePass>393924teYan4!</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>huideyerendebugkey</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>393924teYan4!</AndroidSigningKeyPass>
-    <AndroidKeyStore>True</AndroidKeyStore>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,10 +50,11 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-    <AndroidSigningKeyStore>/Users/yusuke/Dropbox/Androidキーストア/debug.keystore</AndroidSigningKeyStore>
+    <AndroidSigningKeyStore>/Users/yusuke/Library/Developer/Xamarin/Keystore/gribouillage/gribouillage.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>393924teYan4!</AndroidSigningStorePass>
-    <AndroidSigningKeyAlias>gribouillagedebugkey</AndroidSigningKeyAlias>
+    <AndroidSigningKeyAlias>gribouillage</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>393924teYan4!</AndroidSigningKeyPass>
+    <AndroidKeyStore>True</AndroidKeyStore>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
