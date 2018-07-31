@@ -10,6 +10,14 @@
 
 (Sorry, not ready...)
 
+### Web Frontend
+
+(Sorry, not ready...)
+
+### Backend
+
+(Sorry, not ready...)
+
 ## Description
 
 (Sorry, English explanation is not ready yet...)
@@ -18,7 +26,7 @@ Gribouillageは、メモを共有することを目的として作られたメ�
 
 ## 開発への参加方法
 
-このアプリはXamarinを使って作られています。
+このアプリはモバイルアプリ側はXamarinを使って作られています。
 
 そのため、以下のものが必要です。
 
@@ -28,3 +36,5 @@ Gribouillageは、メモを共有することを目的として作られたメ�
 - iPhone、iPadまたはAndroid実機
 
 なお、Windows上での開発までは検証できていません。
+
+Webフロントエンド、バックエンドは現状未定です。
