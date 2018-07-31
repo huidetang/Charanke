@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.company.gribouillage">
-	<uses-sdk android:minSdkVersion="22" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" package="info.huideyeren.gribouillage" android:versionName="0.0.1">
+	<uses-sdk android:minSdkVersion="21" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="Gribouillage.Android" android:icon="@mipmap/ic_launcher"></application>
+	<application android:label="Gribouillage" android:icon="@mipmap/ic_launcher"></application>
 </manifest>
