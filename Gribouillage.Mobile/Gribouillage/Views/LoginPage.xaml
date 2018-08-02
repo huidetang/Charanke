@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.MVVM;assembly=Prism.Forms"
              Title="{Binding Title}"
              x:Class="Gribouillage.Views.LoginPage">
-
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="メールアドレス"/>
+        <Entry Text="{Binding Email}"/>
+        <Label Text="パスワード"/>
+        <Entry Text="{Binding Password}"/>
+        <Button Text="メールアドレスでサインアップ" Command="{Binding _signUpByEmailAndPasswordCommand}"/>
+        <Button Text="メールアドレスでサインイン" Command="{Binding _signInByEmailAndPasswordCommand}"/>
+        <Label Text="{Binding AuthMessage}"/>
+    </StackLayout>
 </ContentPage>

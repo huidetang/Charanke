@@ -12,7 +12,7 @@ using Gribouillage.Common;
 
 namespace Gribouillage.ViewModels
 {
-  public class LoginPageViewModel : ViewModelBase, INotifyPropertyChanged
+  public class LoginPageViewModel : ViewModelBase, INotifyPropertyChanged, INavigationAware
   {
     private readonly FirebaseModel _firebaseModel = new FirebaseModel();
 

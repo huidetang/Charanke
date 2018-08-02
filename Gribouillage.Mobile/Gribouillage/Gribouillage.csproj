@@ -17,10 +17,15 @@
     <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Remove="Views\LoginPage.xaml" />
+    <None Include="Views\LoginPage.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Views\LoginPage.xaml" />
+    <Compile Update="Views\Login.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
