@@ -14,6 +14,13 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\LoginPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\LoginPage.xaml" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
