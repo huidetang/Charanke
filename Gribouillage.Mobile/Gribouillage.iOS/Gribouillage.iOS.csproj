@@ -143,6 +143,9 @@
     <PackageReference Include="FirebaseAuthentication.net">
       <Version>3.0.7</Version>
     </PackageReference>
+    <PackageReference Include="dotenv.net">
+      <Version>1.0.3</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gribouillage\Gribouillage.csproj">
