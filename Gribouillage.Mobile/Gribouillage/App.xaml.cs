@@ -37,8 +37,8 @@ namespace Gribouillage
 
       DotEnv.Config(true);
 
-      AppCenter.Start("ios=69259a15-94b7-4822-bdc0-d11bc2d146e0;" +
-                "android=f526a445-0646-460c-bd08-7e01f80d39c5;",
+      AppCenter.Start("ios=" + Environment.GetEnvironmentVariable("AppCenterIOsKey") +
+                      "android="+ Environment.GetEnvironmentVariable("AppCenterAndroidKey"),
                 typeof(Analytics), typeof(Crashes));
     }
 
