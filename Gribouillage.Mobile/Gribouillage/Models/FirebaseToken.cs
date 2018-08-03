@@ -7,11 +7,6 @@ namespace Gribouillage.Models
 {
     static class FirebaseToken
     {
-
-    public FirebaseToken(){
-      DotEnv.Config(true, "../../.env");
-    }
-
         /// <summary>
         /// APIキー
         /// </summary>

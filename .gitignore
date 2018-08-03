@@ -41,4 +41,4 @@ Thumbs.db
 *.dotCover
 
 # dotEnv
-./.env
+Gribouillage.Mobile/Gribouillage/.env
