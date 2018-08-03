@@ -9,6 +9,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using dotenv.net;
+using System;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Gribouillage
@@ -34,6 +35,8 @@ namespace Gribouillage
     protected override void OnStart()
     {
       base.OnStart();
+
+      var rootFolder = Environment.GetFolderPath(Gribouillage);
 
       DotEnv.Config(true);
 
