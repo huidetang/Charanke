@@ -40,6 +40,6 @@ Thumbs.db
 # dotCover
 *.dotCover
 
-# dotEnv
-
-/**/**/.env
+# Token File
+/**/**/*Token.cs
+/**/**/*Token.js
