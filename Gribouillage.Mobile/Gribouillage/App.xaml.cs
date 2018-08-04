@@ -35,8 +35,6 @@ namespace Gribouillage
     {
       base.OnStart();
 
-      DotEnv.Config(true);
-
       AppCenter.Start("ios=" + VisualStudioAppCenterToken.IOsKey +
                       "android="+ VisualStudioAppCenterToken.AndroidKey,
                 typeof(Analytics), typeof(Crashes));
@@ -56,6 +54,7 @@ namespace Gribouillage
     {
       containerRegistry.RegisterForNavigation<NavigationPage>();
       containerRegistry.RegisterForNavigation<MainPage>();
+      containerRegistry.RegisterForNavigation<LoginPage>();
     }
   }
 }
