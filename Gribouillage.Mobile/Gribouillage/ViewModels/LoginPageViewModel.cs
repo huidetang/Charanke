@@ -35,7 +35,7 @@ namespace Gribouillage.ViewModels
     #region Constructer
     public LoginPageViewModel(INavigationService navigationService) : base(navigationService)
     {
-
+      this._firebaseModel.PropertyChanged += this.RaisePropertyChanged;
     }
     #endregion
 
