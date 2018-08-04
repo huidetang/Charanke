@@ -18,14 +18,18 @@
     <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove=".env" />
+    <None Remove=".env.sample" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\LoginPage.xaml" />
+    <None Include="Models\FirebaseTokenSample.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <None Include="Models\VisualStudioAppCenterTokenSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\Login.xaml.cs" />
     <Compile Remove="MyView.xaml.cs" />
+    <Compile Remove="Models\FirebaseTokenSample.cs" />
+    <Compile Remove="Models\VisualStudioAppCenterTokenSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\LoginPage.xaml.cs">
@@ -35,9 +39,6 @@
   <ItemGroup>
     <EmbeddedResource Remove="Views\Login.xaml" />
     <EmbeddedResource Remove="MyView.xaml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include=".env" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

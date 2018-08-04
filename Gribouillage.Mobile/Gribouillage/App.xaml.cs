@@ -36,8 +36,6 @@ namespace Gribouillage
     {
       base.OnStart();
 
-      var rootFolder = Environment.GetFolderPath(Gribouillage);
-
       DotEnv.Config(true);
 
       AppCenter.Start("ios=" + Environment.GetEnvironmentVariable("AppCenterIOsKey") +
