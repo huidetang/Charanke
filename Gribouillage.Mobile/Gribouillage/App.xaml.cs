@@ -2,14 +2,13 @@
 using Prism.Ioc;
 using Gribouillage.ViewModels;
 using Gribouillage.Views;
+using Gribouillage.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prism.Unity;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using dotenv.net;
-using System;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Gribouillage
@@ -38,8 +37,8 @@ namespace Gribouillage
 
       DotEnv.Config(true);
 
-      AppCenter.Start("ios=" + Environment.GetEnvironmentVariable("AppCenterIOsKey") +
-                      "android="+ Environment.GetEnvironmentVariable("AppCenterAndroidKey"),
+      AppCenter.Start("ios=" + VisualStudioAppCenterToken.IOsKey +
+                      "android="+ VisualStudioAppCenterToken.AndroidKey,
                 typeof(Analytics), typeof(Crashes));
     }
 
