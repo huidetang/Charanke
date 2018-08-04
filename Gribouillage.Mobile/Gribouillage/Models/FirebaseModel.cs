@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 using Firebase.Auth;
 using System.Linq;
 using System.Collections.ObjectModel;
+using Prism.Mvvm;
+
 namespace Gribouillage.Models
 {
-  public class FirebaseModel : INotifyPropertyChanged
+  public class FirebaseModel : BindableBase
   {
     #region Property
     /// <summary>
