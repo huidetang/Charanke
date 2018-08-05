@@ -30,14 +30,14 @@ namespace Gribouillage
     {
       InitializeComponent();
 
-      DotEnv.Config();
-
       await NavigationService.NavigateAsync("NavigationPage/LoginPage");
     }
 
     protected override void OnStart()
     {
       base.OnStart();
+
+      DotEnv.Config();
 
       AppCenter.Start("ios=" + VisualStudioAppCenterToken.IOsKey +
                       "android="+ VisualStudioAppCenterToken.AndroidKey,
