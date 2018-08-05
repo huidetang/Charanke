@@ -19,6 +19,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove=".env.sample" />
+    <None Remove=".env" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\LoginPage.xaml" />
@@ -39,6 +40,9 @@
   <ItemGroup>
     <EmbeddedResource Remove="Views\Login.xaml" />
     <EmbeddedResource Remove="MyView.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include=".env" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

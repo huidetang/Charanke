@@ -9,6 +9,8 @@ using Prism.Unity;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using dotenv.net;
+using System;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Gribouillage
@@ -27,6 +29,8 @@ namespace Gribouillage
     protected override async void OnInitialized()
     {
       InitializeComponent();
+
+      DotEnv.Config();
 
       await NavigationService.NavigateAsync("NavigationPage/LoginPage");
     }
