@@ -11,6 +11,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using dotenv.net;
 using System;
+using System.Reflection;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Gribouillage
@@ -36,8 +37,6 @@ namespace Gribouillage
     protected override void OnStart()
     {
       base.OnStart();
-
-      DotEnv.Config();
 
       AppCenter.Start("ios=" + VisualStudioAppCenterToken.IOsKey +
                       "android="+ VisualStudioAppCenterToken.AndroidKey,
