@@ -42,9 +42,6 @@
     <EmbeddedResource Remove="Views\Login.xaml" />
     <EmbeddedResource Remove="MyView.xaml" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include=".env" />
-  </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
       <Properties>
