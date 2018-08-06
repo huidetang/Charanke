@@ -8,7 +8,8 @@
 
 ### iOS
 
-(Sorry, not ready...)
+[![Build status](https://build.appcenter.ms/v0.1/apps/ecd2ec63-2a97-4c6c-8432-46430c9434f8/branches/master/badge)](https://appcenter.ms)
+
 
 ### Web Frontend
 
@@ -33,9 +34,12 @@ AndroidとiOSアプリ、Webアプリを用意する予定です。
 - さまざまなSNSのアカウントでログインできる
 - Markdownでメモを書ける
 - TwitterなどでメモのURLを共有できる
+- タグでカテゴリを設定できる
 - 書いたメモにコメントをつけられる
+- 変更履歴を残せて、過去のバージョンに戻すこともできる
 - パスワードまたはアカウント別の設定で閲覧・書き込み制限をつけられる
 - [Qiita](https://qiita.com/)や[esa.io](https://esa.io/)へメモをエクスポートできる
+- スライドショーを作れる
 
 機能リクエストもお待ちしております。
 
@@ -48,6 +52,7 @@ AndroidとiOSアプリ、Webアプリを用意する予定です。
 - 共通して必要なもの
     - Firebaseのアカウント
     - GitHubのアカウント
+    - Slackのアカウント
 - モバイルアプリ開発
     - mac
     - XCode
@@ -59,6 +64,10 @@ AndroidとiOSアプリ、Webアプリを用意する予定です。
     - なにかエディタ
 
 なお、Windows上での開発までは検証できていません。
+
+また、コミュニケーションはSlackで行います。
+
+メンバー招待については、
 
 ## ライセンス
 

@@ -40,6 +40,7 @@ Thumbs.db
 # dotCover
 *.dotCover
 
-# Token File
-/**/**/*Token.cs
-/**/**/*Token.js
+# API Key
+/**/**/.env
+#/**/**/*Token.cs
+#/**/**/*Token.js

@@ -19,6 +19,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove=".env.sample" />
+    <None Remove=".env" />
+    <None Remove="replace.bat" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\LoginPage.xaml" />
@@ -40,6 +42,9 @@
     <EmbeddedResource Remove="Views\Login.xaml" />
     <EmbeddedResource Remove="MyView.xaml" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include=".env" />
+  </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
       <Properties>
@@ -50,4 +55,39 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
+    <PreBuildEvent>
+      copy /Y $(MSBuildProjectDirectory)\Models\FirebaseToken.cs $(MSBuildProjectDirectory)\Models\FirebaseToken.cs.bak
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\FirebaseToken.cs FirebaseApiKey $(FirebaseApiKey)
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\FirebaseToken.cs FirebaseAuthDomain $(FirebaseAuthDomain)
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\FirebaseToken.cs FirebaseDatabaseUrl $(FirebaseDatabaseUrl)
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\FirebaseToken.cs FirebaseStorageBucket $(FirebaseStorageBucket)
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\FirebaseToken.cs FirebaseMessagingSenderId $(FirebaseMessagingSenderId)
+      copy /Y $(MSBuildProjectDirectory)\Models\VisualStudioAppCenterToken.cs $(MSBuildProjectDirectory)\Models\VisualStudioAppCenterToken.cs.bak
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\VisualStudioAppCenterToken.cs VsacAndroidKey $(VsacAndroidKey)
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\VisualStudioAppCenterToken.cs VsacIosKey $(VsacIosKey)
+    </PreBuildEvent>
+    <PostBuildEvent>
+      move /Y $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs.bak $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs
+      move /Y $(MSBuildProjectDirectory)/Models/FirebaseToken.cs.bak $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
+    <PreBuildEvent>
+      source ~/.bash_profile
+      cp $(MSBuildProjectDirectory)/Models/FirebaseToken.cs $(MSBuildProjectDirectory)/Models/FirebaseToken.cs.bak
+      sed -i '' "s/FirebaseApiKey/$FirebaseApiKey/g" $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+      sed -i '' "s/FirebaseAuthDomain/$FirebaseAuthDomain/g" $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+      sed -i '' "s/FirebaseDatabaseUrl/$FirebaseDatabaseUrl/g" $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+      sed -i '' "s/FirebaseStorageBucket/$FirebaseStorageBucket/g" $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+      sed -i '' "s/FirebaseMessagingSenderId/$FirebaseMessagingSenderId/g" $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+      cp $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs.bak
+      sed -i '' "s/VsacAndroidKey/$VsacAndroidKey/g" $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs
+      sed -i '' "s/VsacIosKey/'$VsacIosKey/g" $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs
+    </PreBuildEvent>
+    <PostBuildEvent>
+      mv $(MSBuildProjectDirectory)/Models/FirebaseToken.cs.bak $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+      mv $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs.bak $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
