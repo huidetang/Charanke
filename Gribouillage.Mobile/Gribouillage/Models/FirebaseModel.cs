@@ -36,7 +36,7 @@ namespace Gribouillage.Models
     /// <summary>
     /// Deault Email Address.
     /// </summary>
-    private string _email = "huideyeren@gmail.com";
+    private string _email = "";
 
     /// <summary>
     /// Password for Login.
@@ -58,7 +58,7 @@ namespace Gribouillage.Models
     /// <summary>
     /// Default Password.
     /// </summary>
-    private string _password = "hogehoge";
+    private string _password = "";
 
     /// <summary>
     /// Auth Message.
