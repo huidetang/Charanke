@@ -24,8 +24,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\LoginPage.xaml" />
-    <None Include="Models\FirebaseTokenSample.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
-    <None Include="Models\VisualStudioAppCenterTokenSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\Login.xaml.cs" />
