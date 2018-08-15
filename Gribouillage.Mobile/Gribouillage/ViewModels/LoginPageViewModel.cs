@@ -7,14 +7,15 @@ using Prism.Commands;
 using Prism.Navigation;
 using Prism.Logging;
 using Prism.Services;
+using Prism.Mvvm;
 using Gribouillage.Models;
 using Gribouillage.Common;
 
 namespace Gribouillage.ViewModels
 {
-  public class LoginPageViewModel : ViewModelBase, INotifyPropertyChanged, INavigationAware
+  public class LoginPageViewModel : BindableBase
   {
-    private readonly FirebaseModel _firebaseModel = new FirebaseModel();
+    public FirebaseModel _firebaseModel = new FirebaseModel();
 
     #region Properties
     public string Email
@@ -29,53 +30,34 @@ namespace Gribouillage.ViewModels
       set => this._firebaseModel.Password = value;
     }
 
-    public string AuthMessage => this._firebaseModel.AuthMessage;
+    public string AuthMessage
+    {
+      get => this._firebaseModel.AuthMessage;
+      set => this._firebaseModel.AuthMessage = value;
+    }
+
+    public DelegateCommand SignInByEmailAndPasswordCommand { get; }
+
+    public DelegateCommand SignUpByEmailAndPasswordCommand { get; }
     #endregion
 
     #region Constructer
-    public LoginPageViewModel(INavigationService navigationService) : base(navigationService)
+    public LoginPageViewModel()
     {
-      Title = "Login";
-      this._firebaseModel.PropertyChanged += this.RaisePropertyChanged;
+      this.SignInByEmailAndPasswordCommand = new DelegateCommand(async () => await SignInByEmailAndPasswordAction());
+      this.SignUpByEmailAndPasswordCommand = new DelegateCommand(async () => await SignUpByEmailAndPasswordAction());
     }
     #endregion
 
     #region Command
-    /// <summary>
-    /// Sign in.
-    /// </summary>
-    /// <value>Sign in by email and password.</value>
-    public RelayCommand SignInByEmailAndPasswordCommand
+    private async Task SignInByEmailAndPasswordAction()
     {
-      get => this._signInByEmailAndPasswordCommand ?? new RelayCommand(async () =>
-      {
-        await this._firebaseModel.SignInByEmailAndPasswordAsync();
-      });
+      await this._firebaseModel.SignInByEmailAndPasswordAsync();
     }
 
-    private RelayCommand _signInByEmailAndPasswordCommand;
-
-    /// <summary>
-    /// Sign up.
-    /// </summary>
-    /// <value>Sign up by email and password.</value>
-    public RelayCommand SignUpByEmailAndPasswordCommand
+    private async Task SignUpByEmailAndPasswordAction()
     {
-      get => this._signUpByEmailAndPasswordCommand ?? new RelayCommand(async () =>
-      {
-        await this._firebaseModel.SignUpByEmailAndPasswordAsync();
-      });
-    }
-
-    private RelayCommand _signUpByEmailAndPasswordCommand;
-    #endregion
-
-    #region INotifyPropertyChanged
-
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected void RaisePropertyChanged(object sender, PropertyChangedEventArgs e)
-    {
-      this.PropertyChanged?.Invoke(this, e);
+      await this._firebaseModel.SignUpByEmailAndPasswordAsync();
     }
 
     #endregion

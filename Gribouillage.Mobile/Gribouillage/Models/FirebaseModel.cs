@@ -23,14 +23,7 @@ namespace Gribouillage.Models
     public string Email
     {
       get => this._email;
-      set
-      {
-        if (this._email != value)
-        {
-          this._email = value;
-          this.OnPropertyChanged();
-        }
-      }
+      set => this.SetProperty(ref this._email, value);
     }
 
     /// <summary>
@@ -45,14 +38,7 @@ namespace Gribouillage.Models
     public string Password
     {
       get => this._password;
-      set
-      {
-        if (this._password != value)
-        {
-          this._password = value;
-          this.OnPropertyChanged();
-        }
-      }
+      set => this.SetProperty(ref this._password, value);
     }
 
     /// <summary>
@@ -67,14 +53,7 @@ namespace Gribouillage.Models
     public string AuthMessage
     {
       get => this._authMessage;
-      set
-      {
-        if (this._authMessage != value)
-        {
-          this._authMessage = value;
-          this.OnPropertyChanged();
-        }
-      }
+      set => this.SetProperty(ref this._authMessage, value);
     }
 
       /// <summary>
@@ -128,28 +107,6 @@ namespace Gribouillage.Models
         this.AuthMessage = "ユーザー作成できませんでした。エラーコード：" + ex.Reason;
       }
     }
-    #endregion
-
-    #region Value
-
-    /// <summary>
-    /// Wrapper of string type.
-    /// </summary>
-    public class DatabaseData
-    {
-      public string Value { get; set; }
-    }
-
-    #endregion
-
-    #region INotifyPropertyChanged
-
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-    {
-      this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
     #endregion
   }
 }
