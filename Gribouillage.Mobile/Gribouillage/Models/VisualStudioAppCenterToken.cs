@@ -7,6 +7,6 @@ namespace Gribouillage.Models
   {
     public static string AndroidKey => "VsacAndroidKey";
 
-    public static string IOsKey => "VsacIosKey";
+    public static string IosKey => "VsacIosKey";
   }
 }

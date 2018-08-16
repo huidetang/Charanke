@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Reactive;
+using System.Reactive.Linq;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Logging;
 using Prism.Services;
 using Prism.Mvvm;
+using Prism.Events;
 using Gribouillage.Models;
 using Gribouillage.Common;
+using Reactive.Bindings;
+using Reactive.Bindings.Extensions;
+using System.ComponentModel.DataAnnotations;
 
 namespace Gribouillage.ViewModels
 {
@@ -18,34 +24,51 @@ namespace Gribouillage.ViewModels
     public FirebaseModel _firebaseModel = new FirebaseModel();
 
     #region Properties
-    public string Email
-    {
-      get => this._firebaseModel.Email;
-      set => this._firebaseModel.Email = value;
-    }
+    [Required(ErrorMessage = "メールアドレスを入力してください。")]
+    public ReactiveProperty<string> Email { get; }
+      = new ReactiveProperty<string>();
 
-    public string Password
-    {
-      get => this._firebaseModel.Password;
-      set => this._firebaseModel.Password = value;
-    }
+    [Required(ErrorMessage = "パスワードを入力してください。")]
+    public ReactiveProperty<string> Password { get; }
+      = new ReactiveProperty<string>();
 
-    public string AuthMessage
-    {
-      get => this._firebaseModel.AuthMessage;
-      set => this._firebaseModel.AuthMessage = value;
-    }
+    public ReadOnlyReactiveProperty<string> AuthMessage { get; }
 
-    public DelegateCommand SignInByEmailAndPasswordCommand { get; }
+    public ReactiveCommand SendSignInByEmailAndPassword { get; }
 
-    public DelegateCommand SignUpByEmailAndPasswordCommand { get; }
+    public ReactiveCommand SendSignUpByEmailAndPassword { get; }
     #endregion
 
     #region Constructer
     public LoginPageViewModel()
     {
-      this.SignInByEmailAndPasswordCommand = new DelegateCommand(async () => await SignInByEmailAndPasswordAction());
-      this.SignUpByEmailAndPasswordCommand = new DelegateCommand(async () => await SignUpByEmailAndPasswordAction());
+      _firebaseModel = new FirebaseModel();
+
+      Email = _firebaseModel.ToReactivePropertyAsSynchronized(
+        m => m.Email,
+        ReactivePropertyMode.DistinctUntilChanged
+            | ReactivePropertyMode.RaiseLatestValueOnSubscribe,
+        true)
+        .SetValidateAttribute(() => Email);
+
+      Password = _firebaseModel.ToReactivePropertyAsSynchronized(
+        m => m.Password,
+        ReactivePropertyMode.DistinctUntilChanged
+            | ReactivePropertyMode.RaiseLatestValueOnSubscribe,
+        true)
+                               .SetValidateAttribute(() => Password);
+
+      AuthMessage = _firebaseModel.ToReactivePropertyAsSynchronized(
+        m => m.AuthMessage
+      ).ToReadOnlyReactiveProperty();
+
+      SendSignInByEmailAndPassword = Email.ObserveHasErrors.CombineLatest(
+        Password.ObserveHasErrors, (x, y) => !x && !y)
+                                          .ToReactiveCommand();
+
+      SendSignUpByEmailAndPassword = Email.ObserveHasErrors.CombineLatest(
+        Password.ObserveHasErrors, (x, y) => !x && !y)
+                                          .ToReactiveCommand();
     }
     #endregion
 

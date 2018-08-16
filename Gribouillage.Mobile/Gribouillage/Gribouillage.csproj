@@ -11,6 +11,9 @@
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.8.0" />
     <PackageReference Include="FirebaseAuthentication.net" Version="3.0.7" />
     <PackageReference Include="dotenv.net" Version="1.0.3" />
+    <PackageReference Include="ReactiveProperty" Version="5.2.0" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.1" />
+    <PackageReference Include="Microsoft.AppCenter" Version="1.8.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +33,7 @@
     <Compile Remove="MyView.xaml.cs" />
     <Compile Remove="Models\FirebaseTokenSample.cs" />
     <Compile Remove="Models\VisualStudioAppCenterTokenSample.cs" />
+    <Compile Remove="Common\RelayCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\LoginPage.xaml.cs">
@@ -78,7 +82,7 @@
       sed -i '' "s/FirebaseMessagingSenderId/$FirebaseMessagingSenderId/g" $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
       cp $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs.bak
       sed -i '' "s/VsacAndroidKey/$VsacAndroidKey/g" $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs
-      sed -i '' "s/VsacIosKey/'$VsacIosKey/g" $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs
+      sed -i '' "s/VsacIosKey/$VsacIosKey/g" $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs
     </PreBuildEvent>
     <PostBuildEvent>
       mv $(MSBuildProjectDirectory)/Models/FirebaseToken.cs.bak $(MSBuildProjectDirectory)/Models/FirebaseToken.cs

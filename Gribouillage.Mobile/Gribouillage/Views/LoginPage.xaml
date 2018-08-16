@@ -7,11 +7,11 @@
              x:Class="Gribouillage.Views.LoginPage">
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Label Text="メールアドレス"/>
-        <Entry Text="{Binding Email}"/>
+        <Entry Text="{Binding Email.Value}"/>
         <Label Text="パスワード"/>
-        <Entry Text="{Binding Password}" IsPassword="true"/>
-        <Button Text="メールアドレスでサインアップ" Command="{Binding SignUpByEmailAndPasswordCommand}"/>
-        <Button Text="メールアドレスでサインイン" Command="{Binding SignInByEmailAndPasswordCommand}"/>
-        <Label Text="{Binding AuthMessage}"/>
+        <Entry Text="{Binding Password.Value}" IsPassword="true"/>
+        <Button Text="メールアドレスでサインアップ" Command="{Binding SignUpByEmailAndPassword}"/>
+        <Button Text="メールアドレスでサインイン" Command="{Binding SignInByEmailAndPassword}"/>
+        <Label Text="{Binding AuthMessage.Value}"/>
     </StackLayout>
 </ContentPage>
