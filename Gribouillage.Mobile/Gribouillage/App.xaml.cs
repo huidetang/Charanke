@@ -38,8 +38,8 @@ namespace Gribouillage
     {
       base.OnStart();
 
-      AppCenter.Start("ios=" + VisualStudioAppCenterToken.IosKey +
-                      "android="+ VisualStudioAppCenterToken.AndroidKey,
+      AppCenter.Start("ios=" + VisualStudioAppCenterToken.IosKey + ";" +
+                      "android="+ VisualStudioAppCenterToken.AndroidKey + ";",
                 typeof(Analytics), typeof(Crashes));
     }
 
