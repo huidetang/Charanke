@@ -10,8 +10,8 @@
         <Entry Text="{Binding Email.Value}"/>
         <Label Text="パスワード"/>
         <Entry Text="{Binding Password.Value}" IsPassword="true"/>
-        <Button Text="メールアドレスでサインアップ" Command="{Binding SignUpByEmailAndPassword}"/>
-        <Button Text="メールアドレスでサインイン" Command="{Binding SignInByEmailAndPassword}"/>
+        <Button Text="メールアドレスでサインアップ" Command="{Binding SendSignUpByEmailAndPassword}"/>
+        <Button Text="メールアドレスでサインイン" Command="{Binding SendSignInByEmailAndPassword}"/>
         <Label Text="{Binding AuthMessage.Value}"/>
     </StackLayout>
 </ContentPage>

@@ -44,23 +44,16 @@ namespace Gribouillage.ViewModels
     {
       _firebaseModel = new FirebaseModel();
 
-      Email = _firebaseModel.ToReactivePropertyAsSynchronized(
-        m => m.Email,
-        ReactivePropertyMode.DistinctUntilChanged
-            | ReactivePropertyMode.RaiseLatestValueOnSubscribe,
-        true)
-        .SetValidateAttribute(() => Email);
+      Email = ReactiveProperty.FromObject(
+        _firebaseModel,
+        x => x.Email);
 
-      Password = _firebaseModel.ToReactivePropertyAsSynchronized(
-        m => m.Password,
-        ReactivePropertyMode.DistinctUntilChanged
-            | ReactivePropertyMode.RaiseLatestValueOnSubscribe,
-        true)
-                               .SetValidateAttribute(() => Password);
+      Password = ReactiveProperty.FromObject(
+        _firebaseModel,
+        x => x.Password);
 
-      AuthMessage = _firebaseModel.ToReactivePropertyAsSynchronized(
-        m => m.AuthMessage
-      ).ToReadOnlyReactiveProperty();
+      AuthMessage = _firebaseModel.ObserveProperty(m => m.AuthMessage)
+                                  .ToReadOnlyReactiveProperty();
 
       SendSignInByEmailAndPassword = Email.ObserveHasErrors.CombineLatest(
         Password.ObserveHasErrors, (x, y) => !x && !y)
@@ -69,6 +62,12 @@ namespace Gribouillage.ViewModels
       SendSignUpByEmailAndPassword = Email.ObserveHasErrors.CombineLatest(
         Password.ObserveHasErrors, (x, y) => !x && !y)
                                           .ToReactiveCommand();
+
+      SendSignInByEmailAndPassword.Subscribe(
+        async _ => await this.SignInByEmailAndPasswordAction());
+
+      SendSignUpByEmailAndPassword.Subscribe(
+        async _ => await this.SignUpByEmailAndPasswordAction());
     }
     #endregion
 
