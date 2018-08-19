@@ -13,6 +13,9 @@ using Prism.Mvvm;
 
 namespace Gribouillage.Models
 {
+  /// <summary>
+  /// Firebase model.
+  /// </summary>
   public class FirebaseModel : BindableBase
   {
     #region Property
@@ -92,6 +95,10 @@ namespace Gribouillage.Models
       }
     }
 
+    /// <summary>
+    /// Sign Up by Email Address and Password async.
+    /// </summary>
+    /// <returns>Task</returns>
     public async Task SignUpByEmailAndPasswordAsync()
     {
       try

@@ -5,6 +5,9 @@ using dotenv.net;
 
 namespace Gribouillage.Models
 {
+  /// <summary>
+  /// Firebase token.
+  /// </summary>
   public static class FirebaseToken
   {
     /// <summary>

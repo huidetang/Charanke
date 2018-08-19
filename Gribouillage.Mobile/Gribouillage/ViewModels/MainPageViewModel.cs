@@ -8,12 +8,19 @@ using System.Text;
 
 namespace Gribouillage.ViewModels
 {
-    public class MainPageViewModel : ViewModelBase
+  /// <summary>
+  /// Main page view model.
+  /// </summary>
+  public class MainPageViewModel : ViewModelBase
+  {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="T:Gribouillage.ViewModels.MainPageViewModel"/> class.
+    /// </summary>
+    /// <param name="navigationService">Navigation service.</param>
+    public MainPageViewModel(INavigationService navigationService)
+        : base(navigationService)
     {
-        public MainPageViewModel(INavigationService navigationService)
-            : base(navigationService)
-        {
-            Title = "Main Page";
-        }
+      Title = "Main Page";
     }
+  }
 }

@@ -14,6 +14,7 @@
     <PackageReference Include="ReactiveProperty" Version="5.2.0" />
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.1" />
     <PackageReference Include="Microsoft.AppCenter" Version="1.8.0" />
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
   </ItemGroup>
 
   <ItemGroup>

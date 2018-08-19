@@ -6,27 +6,41 @@ using Prism.Ioc;
 
 namespace Gribouillage.Droid
 {
-    [Activity(Label = "Gribouillage", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+  /// <summary>
+  /// Main activity.
+  /// </summary>
+  [Activity(Label = "Gribouillage", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+  public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+  {
+    /// <summary>
+    /// Ons the create.
+    /// </summary>
+    /// <param name="bundle">Bundle.</param>
+    protected override void OnCreate(Bundle bundle)
     {
-        protected override void OnCreate(Bundle bundle)
-        {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
+      TabLayoutResource = Resource.Layout.Tabbar;
+      ToolbarResource = Resource.Layout.Toolbar;
 
-            base.OnCreate(bundle);
+      base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App(new AndroidInitializer()));
-        }
+      global::Xamarin.Forms.Forms.Init(this, bundle);
+      LoadApplication(new App(new AndroidInitializer()));
     }
+  }
 
-    public class AndroidInitializer : IPlatformInitializer
+  /// <summary>
+  /// Android initializer.
+  /// </summary>
+  public class AndroidInitializer : IPlatformInitializer
+  {
+    /// <summary>
+    /// Registers the types.
+    /// </summary>
+    /// <param name="containerRegistry">Container registry.</param>
+    public void RegisterTypes(IContainerRegistry containerRegistry)
     {
-        public void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-            // Register any platform specific implementations
-        }
+      // Register any platform specific implementations
     }
+  }
 }
 
