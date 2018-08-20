@@ -1,4 +1,4 @@
-# Gribouillageライセンス
+# Charankeライセンス
 
 v1.0 beta8 17/5/7
 

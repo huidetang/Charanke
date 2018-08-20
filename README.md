@@ -1,4 +1,4 @@
-# Gribouillage
+# Charanke
 
 ## Build Status
 
@@ -23,7 +23,7 @@
 
 (Sorry, English explanation is not ready yet...)
 
-Gribouillageは、メモを共有するとともに、議論の結果を残すことを目的として作られたメモ帳アプリです。
+Charankeは、メモを共有するとともに、議論の結果を残すことを目的として作られたメモ帳アプリです。
 
 AndroidとiOSアプリ、Webアプリを用意する予定です。
 
