@@ -1,0 +1,92 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.396" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.8.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.8.0" />
+    <PackageReference Include="FirebaseAuthentication.net" Version="3.0.7" />
+    <PackageReference Include="dotenv.net" Version="1.0.3" />
+    <PackageReference Include="ReactiveProperty" Version="5.2.0" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.1" />
+    <PackageReference Include="Microsoft.AppCenter" Version="1.8.0" />
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove=".env.sample" />
+    <None Remove=".env" />
+    <None Remove="replace.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\LoginPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\Login.xaml.cs" />
+    <Compile Remove="MyView.xaml.cs" />
+    <Compile Remove="Models\FirebaseTokenSample.cs" />
+    <Compile Remove="Models\VisualStudioAppCenterTokenSample.cs" />
+    <Compile Remove="Common\RelayCommand.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\Login.xaml" />
+    <EmbeddedResource Remove="MyView.xaml" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <TextStylePolicy TabWidth="4" IndentWidth="4" RemoveTrailingWhitespace="True" NoTabsAfterNonTabs="False" EolMarker="Native" FileWidth="80" TabsToSpaces="True" scope="text/x-csharp" />
+          <CSharpFormattingPolicy IndentBlock="True" IndentBraces="False" IndentSwitchSection="True" IndentSwitchCaseSection="True" LabelPositioning="OneLess" NewLinesForBracesInTypes="True" NewLinesForBracesInMethods="True" NewLinesForBracesInProperties="True" NewLinesForBracesInAccessors="True" NewLinesForBracesInAnonymousMethods="True" NewLinesForBracesInControlBlocks="True" NewLinesForBracesInAnonymousTypes="True" NewLinesForBracesInObjectCollectionArrayInitializers="True" NewLinesForBracesInLambdaExpressionBody="True" NewLineForElse="True" NewLineForCatch="True" NewLineForFinally="True" NewLineForMembersInObjectInit="True" NewLineForMembersInAnonymousTypes="True" NewLineForClausesInQuery="True" SpacingAfterMethodDeclarationName="False" SpaceWithinMethodDeclarationParenthesis="False" SpaceBetweenEmptyMethodDeclarationParentheses="False" SpaceAfterMethodCallName="False" SpaceWithinMethodCallParentheses="False" SpaceBetweenEmptyMethodCallParentheses="False" SpaceAfterControlFlowStatementKeyword="True" SpaceWithinExpressionParentheses="False" SpaceWithinCastParentheses="False" SpaceWithinOtherParentheses="False" SpaceAfterCast="False" SpacesIgnoreAroundVariableDeclaration="False" SpaceBeforeOpenSquareBracket="False" SpaceBetweenEmptySquareBrackets="False" SpaceWithinSquareBrackets="False" SpaceAfterColonInBaseTypeDeclaration="True" SpaceAfterComma="True" SpaceAfterDot="False" SpaceAfterSemicolonsInForStatement="True" SpaceBeforeColonInBaseTypeDeclaration="True" SpaceBeforeComma="False" SpaceBeforeDot="False" SpaceBeforeSemicolonsInForStatement="False" SpacingAroundBinaryOperator="Single" WrappingPreserveSingleLine="True" WrappingKeepStatementsOnSingleLine="True" PlaceSystemDirectiveFirst="True" scope="text/x-csharp" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
+    <PreBuildEvent>
+      copy /Y $(MSBuildProjectDirectory)\Models\FirebaseToken.cs $(MSBuildProjectDirectory)\Models\FirebaseToken.cs.bak
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\FirebaseToken.cs FirebaseApiKey $(FirebaseApiKey)
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\FirebaseToken.cs FirebaseAuthDomain $(FirebaseAuthDomain)
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\FirebaseToken.cs FirebaseDatabaseUrl $(FirebaseDatabaseUrl)
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\FirebaseToken.cs FirebaseStorageBucket $(FirebaseStorageBucket)
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\FirebaseToken.cs FirebaseMessagingSenderId $(FirebaseMessagingSenderId)
+      copy /Y $(MSBuildProjectDirectory)\Models\VisualStudioAppCenterToken.cs $(MSBuildProjectDirectory)\Models\VisualStudioAppCenterToken.cs.bak
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\VisualStudioAppCenterToken.cs VsacAndroidKey $(VsacAndroidKey)
+      call $(MSBuildProjectDirectory)\replace.bat $(MSBuildProjectDirectory)\Models\VisualStudioAppCenterToken.cs VsacIosKey $(VsacIosKey)
+    </PreBuildEvent>
+    <PostBuildEvent>
+      move /Y $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs.bak $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs
+      move /Y $(MSBuildProjectDirectory)/Models/FirebaseToken.cs.bak $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(OS)' != 'Windows_NT' ">
+    <PreBuildEvent>
+      source ~/.bash_profile
+      cp $(MSBuildProjectDirectory)/Models/FirebaseToken.cs $(MSBuildProjectDirectory)/Models/FirebaseToken.cs.bak
+      sed -i '' "s/FirebaseApiKey/$FirebaseApiKey/g" $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+      sed -i '' "s/FirebaseAuthDomain/$FirebaseAuthDomain/g" $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+      sed -i '' "s/FirebaseDatabaseUrl/$FirebaseDatabaseUrl/g" $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+      sed -i '' "s/FirebaseStorageBucket/$FirebaseStorageBucket/g" $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+      sed -i '' "s/FirebaseMessagingSenderId/$FirebaseMessagingSenderId/g" $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+      cp $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs.bak
+      sed -i '' "s/VsacAndroidKey/$VsacAndroidKey/g" $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs
+      sed -i '' "s/VsacIosKey/$VsacIosKey/g" $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs
+    </PreBuildEvent>
+    <PostBuildEvent>
+      mv $(MSBuildProjectDirectory)/Models/FirebaseToken.cs.bak $(MSBuildProjectDirectory)/Models/FirebaseToken.cs
+      mv $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs.bak $(MSBuildProjectDirectory)/Models/VisualStudioAppCenterToken.cs
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
