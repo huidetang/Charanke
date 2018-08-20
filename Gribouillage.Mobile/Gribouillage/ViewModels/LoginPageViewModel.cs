@@ -12,7 +12,6 @@ using Prism.Services;
 using Prism.Mvvm;
 using Prism.Events;
 using Gribouillage.Models;
-using Gribouillage.Common;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 using System.ComponentModel.DataAnnotations;

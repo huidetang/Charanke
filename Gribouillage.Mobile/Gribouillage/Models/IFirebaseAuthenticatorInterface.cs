@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Gribouillage.Common
+namespace Gribouillage.Models
 {
   /// <summary>
   /// Firebase authenticator.
