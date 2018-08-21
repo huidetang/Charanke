@@ -13,4 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Charanke.Mobile\Charanke\Charanke.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="_site\api\Charanke.Droid.AndroidInitializer.html" />
+  </ItemGroup>
 </Project>
