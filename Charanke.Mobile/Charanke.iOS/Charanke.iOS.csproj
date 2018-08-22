@@ -96,6 +96,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <ITunesArtwork Include="iTunesArtwork@1x.png" />
     <ITunesArtwork Include="iTunesArtwork@2x.png" />
+    <Compile Include="FirebaseAuthenticator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json" />
@@ -134,6 +135,7 @@
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="iTunesArtwork%403x.png" />
+    <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -145,9 +147,6 @@
     <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.396" />
     <PackageReference Include="FirebaseAuthentication.net">
       <Version>3.0.7</Version>
-    </PackageReference>
-    <PackageReference Include="dotenv.net">
-      <Version>1.0.3</Version>
     </PackageReference>
     <PackageReference Include="System.Threading.Tasks.Extensions">
       <Version>4.5.1</Version>
@@ -166,6 +165,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>3.1.0.697729</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.Auth">
+      <Version>5.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

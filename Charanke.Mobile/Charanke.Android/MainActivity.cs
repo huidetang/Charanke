@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Firebase;
 using Prism;
 using Prism.Ioc;
 
@@ -24,6 +25,7 @@ namespace Charanke.Droid
       base.OnCreate(bundle);
 
       global::Xamarin.Forms.Forms.Init(this, bundle);
+      FirebaseApp.InitializeApp(Application.Context);
       LoadApplication(new App(new AndroidInitializer()));
     }
   }
