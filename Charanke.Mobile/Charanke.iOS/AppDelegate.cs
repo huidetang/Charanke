@@ -1,7 +1,10 @@
-﻿using Foundation;
+﻿using Charanke.iOS.Services;
+using Charanke.Services;
+using Foundation;
 using Prism;
 using Prism.Ioc;
 using UIKit;
+using Unity;
 
 
 namespace Charanke.iOS
@@ -34,6 +37,7 @@ namespace Charanke.iOS
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {
       // Register any platform specific implementations
+      containerRegistry.Register<IFirebaseAuthenticator, FirebaseAuthenticator>();
     }
   }
 }

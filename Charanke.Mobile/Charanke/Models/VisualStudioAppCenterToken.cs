@@ -1,7 +1,4 @@
-﻿using System;
-using dotenv.net;
-
-namespace Charanke.Models
+﻿namespace Charanke.Models
 {
   /// <summary>
   /// Visual Studio App Center token.

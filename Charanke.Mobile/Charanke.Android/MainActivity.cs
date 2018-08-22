@@ -1,6 +1,8 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Charanke.Droid.Services;
+using Charanke.Services;
 using Firebase;
 using Prism;
 using Prism.Ioc;
@@ -42,6 +44,8 @@ namespace Charanke.Droid
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {
       // Register any platform specific implementations
+      containerRegistry.Register<IFirebaseAuthenticator, FirebaseAuthenticator>();
+
     }
   }
 }

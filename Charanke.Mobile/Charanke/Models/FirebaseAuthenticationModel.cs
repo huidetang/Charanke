@@ -10,13 +10,15 @@ using Firebase.Auth;
 using System.Linq;
 using System.Collections.ObjectModel;
 using Prism.Mvvm;
+using Charanke.Services;
+using Charanke.ViewModels;
 
 namespace Charanke.Models
 {
   /// <summary>
   /// Firebase model.
   /// </summary>
-  public class FirebaseModel : BindableBase
+  public class FirebaseAuthenticationModel : BindableBase
   {
     #region Property
     /// <summary>
@@ -64,6 +66,8 @@ namespace Charanke.Models
       /// </summary>
     private string _authMessage;
 
+    private IFirebaseAuthenticator FirebaseAuthenticator { get; }
+
     #endregion
 
     #region Variables
@@ -75,6 +79,11 @@ namespace Charanke.Models
 
     #region Methods
 
+    public FirebaseAuthenticationModel(IFirebaseAuthenticator firebaseAuthenticator)
+    {
+      this.FirebaseAuthenticator = firebaseAuthenticator;
+    }
+
     /// <summary>
     /// Sign in by Email Address and Password async.
     /// </summary>
@@ -83,15 +92,13 @@ namespace Charanke.Models
     {
       try
       {
-        var auth = new FirebaseAuthProvider(new FirebaseConfig(FirebaseToken.ApiKey));
-
-        this._authLink = await auth.SignInWithEmailAndPasswordAsync(this.Email, this.Password);
+        await this.FirebaseAuthenticator.LoginWithEmailPassword(this.Email, this.Password);
 
         this.AuthMessage = "サインインに成功しました。";
       }
-      catch (FirebaseAuthException ex)
+      catch (Exception ex)
       {
-        this.AuthMessage = "サインインできませんでした。エラーコード：" + ex.Reason;
+        this.AuthMessage = "サインインできませんでした。エラーコード：" + ex.Message;
       }
     }
 

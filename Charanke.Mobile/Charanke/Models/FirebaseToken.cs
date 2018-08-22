@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using dotenv.net;
-
-namespace Charanke.Models
+﻿namespace Charanke.Models
 {
   /// <summary>
   /// Firebase token.

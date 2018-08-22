@@ -11,7 +11,7 @@ namespace Charanke.Tests.Models
     [Test()]
     public async Task SignUpByEmailAndPasswordAsyncTest()
     {
-      var model = new FirebaseModel();
+      var model = new FirebaseAuthenticationModel();
       model.Email = "test@test.com";
       model.Password = "hogehoge";
       await model.SignUpByEmailAndPasswordAsync();
@@ -21,7 +21,7 @@ namespace Charanke.Tests.Models
     [Test()]
     public async Task SignInByEmailAndPasswordAsyncTest()
     {
-      var model = new FirebaseModel();
+      var model = new FirebaseAuthenticationModel();
       model.Email = "test@test.com";
       model.Password = "hogehoge";
       await model.SignInByEmailAndPasswordAsync();

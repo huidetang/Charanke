@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Charanke.Models
+namespace Charanke.Services
 {
   /// <summary>
   /// Firebase authenticator.

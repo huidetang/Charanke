@@ -1,9 +1,10 @@
 using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
-using Charanke.Models;
+using Charanke.Services;
 using Firebase.Auth;
 
-namespace Charanke.Droid
+namespace Charanke.Droid.Services
 {
   public class FirebaseAuthenticator : IFirebaseAuthenticator
   {
