@@ -144,9 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.396" />
-    <PackageReference Include="FirebaseAuthentication.net">
-      <Version>3.0.7</Version>
-    </PackageReference>
     <PackageReference Include="System.Threading.Tasks.Extensions">
       <Version>4.5.1</Version>
     </PackageReference>

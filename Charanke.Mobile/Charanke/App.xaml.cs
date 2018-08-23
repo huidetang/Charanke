@@ -48,6 +48,10 @@ namespace Charanke
     {
       base.OnStart();
 
+#if DEBUG
+      AppCenter.LogLevel = LogLevel.Verbose;
+#endif
+
       AppCenter.Start("ios=" + VisualStudioAppCenterToken.IosKey + ";" +
                       "android="+ VisualStudioAppCenterToken.AndroidKey + ";",
                 typeof(Analytics), typeof(Crashes));

@@ -8,12 +8,12 @@
     /// <summary>
     /// API Key
     /// </summary>
-    public static string ApiKey => "FirebaseApiKey";
+    public static string ApiKey => "AIzaSyCjkCLJ9YeBpVCMjfhXzRfnv2cO9l_zmtM";
 
     /// <summary>
     /// Auth Domain
     /// </summary>
-    public static string AuthDomain => "FirebaseAuthDomain";
+    public static string AuthDomain => "charanke-22173.firebaseapp.com";
 
     /// <summary>
     /// Database URL
@@ -23,12 +23,12 @@
     /// <summary>
     /// Storage Bucket
     /// </summary>
-    public static string StorageBucket => "FirebaseStorageBucket";
+    public static string StorageBucket => "charanke-22173.appspot.com";
 
     /// <summary>
     /// Message Sender ID
     /// </summary>
-    public static string MessagingSenderId => "FirebaseMessagingSenderId";
+    public static string MessagingSenderId => "710598333304";
 
   }
 }

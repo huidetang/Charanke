@@ -6,12 +6,12 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Firebase.Auth;
 using System.Linq;
 using System.Collections.ObjectModel;
 using Prism.Mvvm;
 using Charanke.Services;
 using Charanke.ViewModels;
+using Microsoft.AppCenter.Crashes;
 
 namespace Charanke.Models
 {
@@ -71,10 +71,6 @@ namespace Charanke.Models
     #endregion
 
     #region Variables
-    /// <summary>
-    /// Firebase認証へのリンク
-    /// </summary>
-    private FirebaseAuthLink _authLink;
     #endregion
 
     #region Methods
@@ -92,13 +88,15 @@ namespace Charanke.Models
     {
       try
       {
-        await this.FirebaseAuthenticator.LoginWithEmailPassword(this.Email, this.Password);
+        await FirebaseAuthenticator.LoginWithEmailPassword(this.Email, this.Password);
 
         this.AuthMessage = "サインインに成功しました。";
       }
       catch (Exception ex)
       {
         this.AuthMessage = "サインインできませんでした。エラーコード：" + ex.Message;
+
+        Crashes.TrackError(ex);
       }
     }
 
@@ -110,15 +108,15 @@ namespace Charanke.Models
     {
       try
       {
-        var auth = new FirebaseAuthProvider(new FirebaseConfig(FirebaseToken.ApiKey));
-
-        this._authLink = await auth.CreateUserWithEmailAndPasswordAsync(this.Email, this.Password);
+        await FirebaseAuthenticator.CreateUserWithEmailPassword(this.Email, this.Password);
 
         this.AuthMessage = "ユーザー作成に成功しました。";
-        }
-      catch (FirebaseAuthException ex)
+      }
+      catch (Exception ex)
       {
-        this.AuthMessage = "ユーザー作成できませんでした。エラーコード：" + ex.Reason;
+        this.AuthMessage = "ユーザー作成できませんでした。エラーコード：" + ex.Message;
+
+        Crashes.TrackError(ex);
       }
     }
     #endregion

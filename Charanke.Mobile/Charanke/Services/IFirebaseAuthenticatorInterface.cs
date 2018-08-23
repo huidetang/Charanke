@@ -15,5 +15,6 @@ namespace Charanke.Services
     /// <param name="email">Email.</param>
     /// <param name="password">Password.</param>
     Task<string> LoginWithEmailPassword(string email, string password);
+    Task<string> CreateUserWithEmailPassword(string email, string password);
   }
 }

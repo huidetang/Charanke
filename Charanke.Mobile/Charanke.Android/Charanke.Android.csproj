@@ -71,9 +71,6 @@
     <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2.1" />
     <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.396" />
-    <PackageReference Include="FirebaseAuthentication.net">
-      <Version>3.0.7</Version>
-    </PackageReference>
     <PackageReference Include="System.Threading.Tasks.Extensions">
       <Version>4.5.1</Version>
     </PackageReference>
@@ -87,7 +84,7 @@
       <Version>1.8.0</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Packaging">
-      <Version>0.2.0</Version>
+      <Version>0.2.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>3.1.0.697729</Version>
