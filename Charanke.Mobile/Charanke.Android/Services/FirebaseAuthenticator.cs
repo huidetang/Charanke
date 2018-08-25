@@ -16,12 +16,10 @@ namespace Charanke.Droid.Services
       return token.Token;
     }
 
-    public async Task<string> CreateUserWithEmailPassword(string email, string password)
+    public async Task CreateUserWithEmailPassword(string email, string password)
     {
       var user = await FirebaseAuth.Instance
         .CreateUserWithEmailAndPasswordAsync(email, password);
-      var token = await user.User.GetIdTokenAsync(false);
-      return token.Token;
     }
   }
 }

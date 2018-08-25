@@ -14,10 +14,9 @@ namespace Charanke.iOS.Services
       return await user.User.GetIdTokenAsync();
     }
 
-    public async Task<string> CreateUserWithEmailPassword(string email, string password)
+    public async Task CreateUserWithEmailPassword(string email, string password)
     {
       var user = await Auth.DefaultInstance.CreateUserAsync(email, password);
-      return await user.User.GetIdTokenAsync();
     }
   }
 }
