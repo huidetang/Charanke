@@ -102,10 +102,10 @@ namespace Charanke.ViewModels
                                           .ToReactiveCommand();
 
       SendSignInByEmailAndPassword.Subscribe(
-        async _ => await this.SignInByEmailAndPasswordAction());
+        async () => await this.SignInByEmailAndPasswordAction());
 
       SendSignUpByEmailAndPassword.Subscribe(
-        async _ => await this.SignUpByEmailAndPasswordAction());
+        async () => await this.SignUpByEmailAndPasswordAction());
     }
     #endregion
 

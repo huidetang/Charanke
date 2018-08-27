@@ -52,8 +52,8 @@ namespace Charanke
       AppCenter.LogLevel = LogLevel.Verbose;
 #endif
 
-      AppCenter.Start("ios=" + VisualStudioAppCenterToken.IosKey + ";" +
-                      "android="+ VisualStudioAppCenterToken.AndroidKey + ";",
+      AppCenter.Start("ios=69259a15-94b7-4822-bdc0-d11bc2d146e0;" +
+                      "android=f526a445-0646-460c-bd08-7e01f80d39c5;",
                 typeof(Analytics), typeof(Crashes));
     }
 
