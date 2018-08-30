@@ -42,7 +42,8 @@
     <AndroidSigningKeyAlias>huideyerendebugkey</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>393924teYan4!</AndroidSigningKeyPass>
 <MandroidI18n>cjk</MandroidI18n>
-<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+<AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+<AndroidSupportedAbis>arm64-v8a;armeabi;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
