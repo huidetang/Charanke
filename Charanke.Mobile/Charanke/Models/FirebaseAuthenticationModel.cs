@@ -114,7 +114,7 @@ namespace Charanke.Models
       }
       catch (Exception ex)
       {
-        this.AuthMessage = "ユーザー作成できませんでした。エラーコード：" + ex.Message;
+        this.AuthMessage = "ユーザー作成できませんでした。\nメッセージ：" + ex.Message;
 
         Crashes.TrackError(ex);
       }
