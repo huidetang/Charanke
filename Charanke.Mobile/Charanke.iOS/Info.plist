@@ -29,7 +29,7 @@
 	<key>CFBundleName</key>
 	<string>Charanke</string>
 	<key>CFBundleIdentifier</key>
-	<string>info.huideyeren.charanke</string>
+	<string>info.huideyeren.Charanke</string>
 	<key>CFBundleVersion</key>
 	<string>0.0.1</string>
 	<key>XSAppIconAssets</key>
@@ -38,5 +38,7 @@
 	<string>Assets.xcassets/LaunchImage.launchimage</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>Japanese</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.1</string>
 </dict>
 </plist>
