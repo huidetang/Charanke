@@ -94,7 +94,7 @@ namespace Charanke.Models
       }
       catch (Exception ex)
       {
-        this.AuthMessage = "サインインできませんでした。エラーコード：" + ex.Message;
+        this.AuthMessage = "サインインできませんでした。\nメッセージ：" + ex.Message;
 
         Crashes.TrackError(ex);
       }
