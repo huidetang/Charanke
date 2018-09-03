@@ -1,5 +1,5 @@
 using System;
-namespace Charanke.iOS.Services
+namespace Charanke.Services
 {
   public class AuthFailureException : Exception
   {

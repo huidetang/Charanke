@@ -92,7 +92,7 @@ namespace Charanke.Models
 
         this.AuthMessage = "サインインに成功しました。";
       }
-      catch (Exception ex)
+      catch (AuthFailureException ex)
       {
         this.AuthMessage = "サインインできませんでした。\nメッセージ：" + ex.Message;
 
@@ -112,7 +112,7 @@ namespace Charanke.Models
 
         this.AuthMessage = "ユーザー作成に成功しました。";
       }
-      catch (Exception ex)
+      catch (AuthFailureException ex)
       {
         this.AuthMessage = "ユーザー作成できませんでした。\nメッセージ：" + ex.Message;
 
