@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Charanke.Models
+namespace Charanke.Services
 {
   /// <summary>
   /// Firebase authenticator.
@@ -15,5 +15,6 @@ namespace Charanke.Models
     /// <param name="email">Email.</param>
     /// <param name="password">Password.</param>
     Task<string> LoginWithEmailPassword(string email, string password);
+    Task CreateUserWithEmailPassword(string email, string password);
   }
 }

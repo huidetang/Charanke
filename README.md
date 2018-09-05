@@ -71,6 +71,4 @@ AndroidとiOSアプリ、Webアプリを用意する予定です。
 
 ## ライセンス
 
-独自ライセンスです。
-
-詳しくは`LICENSE.md`をご覧ください。
+Apache License 2.0

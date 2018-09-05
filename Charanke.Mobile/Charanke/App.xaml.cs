@@ -9,7 +9,6 @@ using Prism.Unity;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using dotenv.net;
 using System;
 using System.Reflection;
 
@@ -49,8 +48,12 @@ namespace Charanke
     {
       base.OnStart();
 
-      AppCenter.Start("ios=" + VisualStudioAppCenterToken.IosKey + ";" +
-                      "android="+ VisualStudioAppCenterToken.AndroidKey + ";",
+#if DEBUG
+      AppCenter.LogLevel = LogLevel.Verbose;
+#endif
+
+      AppCenter.Start("ios=69259a15-94b7-4822-bdc0-d11bc2d146e0;" +
+                      "android=f526a445-0646-460c-bd08-7e01f80d39c5;",
                 typeof(Analytics), typeof(Crashes));
     }
 

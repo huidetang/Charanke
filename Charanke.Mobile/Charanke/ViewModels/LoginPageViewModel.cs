@@ -15,6 +15,7 @@ using Charanke.Models;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 using System.ComponentModel.DataAnnotations;
+using Charanke.Services;
 
 namespace Charanke.ViewModels
 {
@@ -23,11 +24,6 @@ namespace Charanke.ViewModels
   /// </summary>
   public class LoginPageViewModel : BindableBase
   {
-    /// <summary>
-    /// The firebase model.
-    /// </summary>
-    public FirebaseModel _firebaseModel = new FirebaseModel();
-
     #region Properties
     /// <summary>
     /// Gets the email address.
@@ -64,24 +60,37 @@ namespace Charanke.ViewModels
     public ReactiveCommand SendSignUpByEmailAndPassword { get; }
     #endregion
 
+    private IFirebaseAuthenticator FirebaseAuthenticator { get; }
+
+
+
+    /// <summary>
+    /// The firebase model.
+    /// </summary>
+    public FirebaseAuthenticationModel _AuthModel;
+
+
+
     #region Constructer
 
     /// <summary>
     /// Initializes a new instance of the <see cref="T:Charanke.ViewModels.LoginPageViewModel"/> class.
     /// </summary>
-    public LoginPageViewModel()
+    public LoginPageViewModel(IFirebaseAuthenticator firebaseAuthenticator)
     {
-      _firebaseModel = new FirebaseModel();
+      FirebaseAuthenticator = firebaseAuthenticator;
+
+      _AuthModel = new FirebaseAuthenticationModel(FirebaseAuthenticator);
 
       Email = ReactiveProperty.FromObject(
-        _firebaseModel,
+        _AuthModel,
         x => x.Email);
 
       Password = ReactiveProperty.FromObject(
-        _firebaseModel,
+        _AuthModel,
         x => x.Password);
 
-      AuthMessage = _firebaseModel.ObserveProperty(m => m.AuthMessage)
+      AuthMessage = _AuthModel.ObserveProperty(m => m.AuthMessage)
                                   .ToReadOnlyReactiveProperty();
 
       SendSignInByEmailAndPassword = Email.ObserveHasErrors.CombineLatest(
@@ -93,10 +102,10 @@ namespace Charanke.ViewModels
                                           .ToReactiveCommand();
 
       SendSignInByEmailAndPassword.Subscribe(
-        async _ => await this.SignInByEmailAndPasswordAction());
+        async () => await this.SignInByEmailAndPasswordAction());
 
       SendSignUpByEmailAndPassword.Subscribe(
-        async _ => await this.SignUpByEmailAndPasswordAction());
+        async () => await this.SignUpByEmailAndPasswordAction());
     }
     #endregion
 
@@ -107,7 +116,7 @@ namespace Charanke.ViewModels
     /// <returns>The action of sign in by email and password.</returns>
     private async Task SignInByEmailAndPasswordAction()
     {
-      await this._firebaseModel.SignInByEmailAndPasswordAsync();
+      await this._AuthModel.SignInByEmailAndPasswordAsync();
     }
 
     /// <summary>
@@ -116,7 +125,7 @@ namespace Charanke.ViewModels
     /// <returns>The action of sign up by email and password.</returns>
     private async Task SignUpByEmailAndPasswordAction()
     {
-      await this._firebaseModel.SignUpByEmailAndPasswordAsync();
+      await this._AuthModel.SignUpByEmailAndPasswordAsync();
     }
 
     #endregion
