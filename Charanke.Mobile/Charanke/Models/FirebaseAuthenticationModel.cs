@@ -68,6 +68,12 @@ namespace Charanke.Models
 
     private IFirebaseAuthenticator FirebaseAuthenticator { get; }
 
+    private string _token;
+    public string Token
+    {
+      get => this._token;
+      set => this.SetProperty(ref this._token, value);
+    }
     #endregion
 
     #region Variables
@@ -88,7 +94,8 @@ namespace Charanke.Models
     {
       try
       {
-        await FirebaseAuthenticator.LoginWithEmailPassword(this.Email, this.Password);
+        this.Token = await FirebaseAuthenticator
+          .LoginWithEmailPassword(this.Email, this.Password);
 
         this.AuthMessage = "サインインに成功しました。";
       }
@@ -108,7 +115,8 @@ namespace Charanke.Models
     {
       try
       {
-        await FirebaseAuthenticator.CreateUserWithEmailPassword(this.Email, this.Password);
+        await FirebaseAuthenticator
+          .CreateUserWithEmailPassword(this.Email, this.Password);
 
         this.AuthMessage = "ユーザー作成に成功しました。";
       }
