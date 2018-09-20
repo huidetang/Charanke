@@ -105,6 +105,7 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <GoogleServicesJson Include="google-services.json" />
+    <None Include="appcenter-post-clone.sh" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
