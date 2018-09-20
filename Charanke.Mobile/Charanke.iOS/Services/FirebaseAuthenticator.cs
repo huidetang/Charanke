@@ -8,12 +8,17 @@ namespace Charanke.iOS.Services
 {
   public class FirebaseAuthenticator : IFirebaseAuthenticator
   {
-    public async Task<string> LoginWithEmailPassword(string email, string password)
+    public async Task<(string token, string uid, string userName, string photoUrl)>
+    LoginWithEmailPassword(string email, string password)
     {
       try
       {
         var user = await Auth.DefaultInstance.SignInWithPasswordAsync(email, password);
-        return await user.User.GetIdTokenAsync();
+        var token = await user.User.GetIdTokenAsync();
+        return (token,
+                user.User.Uid,
+                user.User.DisplayName,
+                user.User.PhotoUrl.ToString());
       }
       catch (NSErrorException ex)
       {

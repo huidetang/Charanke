@@ -3,8 +3,6 @@ namespace Charanke.Models
 {
   public class UserDataModel
   {
-    public UserDataModel()
-    {
-    }
+
   }
 }

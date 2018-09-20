@@ -74,6 +74,27 @@ namespace Charanke.Models
       get => this._token;
       set => this.SetProperty(ref this._token, value);
     }
+
+    private string _uid;
+    public string UId
+    {
+      get => this._uid;
+      set => this.SetProperty(ref this._uid, value);
+    }
+
+    private string _userName;
+    public string UserName
+    {
+      get => this._userName;
+      set => this.SetProperty(ref this._userName, value);
+    }
+
+    private Uri _photoUrl;
+    public Uri PhotoUrl
+    {
+      get => this._photoUrl;
+      set => this.SetProperty(ref this._photoUrl, value);
+    }
     #endregion
 
     #region Variables
@@ -94,8 +115,13 @@ namespace Charanke.Models
     {
       try
       {
-        this.Token = await FirebaseAuthenticator
+        var authData = await FirebaseAuthenticator
           .LoginWithEmailPassword(this.Email, this.Password);
+
+        this.Token = authData.token;
+        this.UId = authData.uid;
+        this.UserName = authData.userName;
+        this.PhotoUrl = new Uri(authData.photoUrl);
 
         this.AuthMessage = "サインインに成功しました。";
       }
