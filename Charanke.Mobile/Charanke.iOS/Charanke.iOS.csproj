@@ -97,6 +97,7 @@
     <ITunesArtwork Include="iTunesArtwork@1x.png" />
     <ITunesArtwork Include="iTunesArtwork@2x.png" />
     <Compile Include="Services\FirebaseAuthenticator.cs" />
+    <None Include="appcenter-post-clone.sh" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json" />
